@@ -83,19 +83,24 @@
     }
 
     .hero {
-      padding: 32px 28px 18px;
-      background:
-        var(--hero-overlay),
-        repeating-linear-gradient(
-          -45deg,
-          var(--hero-pattern-a) 0,
-          var(--hero-pattern-a) 12px,
-          var(--hero-pattern-b) 12px,
-          var(--hero-pattern-b) 24px
-        );
-      border-bottom: 1px solid var(--line);
-    }
+  padding: 32px 28px 18px;
 
+  background:
+    linear-gradient(
+      135deg,
+      rgba(53, 88, 71, 0.14),
+      rgba(82, 122, 99, 0.08)
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.22),
+      rgba(255, 255, 255, 0.22) 12px,
+      rgba(255, 255, 255, 0.10) 12px,
+      rgba(255, 255, 255, 0.10) 24px
+    );
+
+  border-bottom: 1px solid var(--line);
+}
     h1 {
       margin: 0 0 8px;
       font-size: clamp(2rem, 4vw, 3rem);
