@@ -1,0 +1,522 @@
+window.NATIVE_GARDEN_PLANTS = [
+  {
+    name: "Purple Coneflower",
+    botanical: "Echinacea purpurea",
+    type: "Perennial wildflower",
+    rangeLabel: "Midwest, Great Lakes, Upper South",
+    regions: ["AR", "IA", "IL", "IN", "KS", "KY", "MI", "MN", "MO", "OH", "OK", "TN", "WI"],
+    startIndoors: -56,
+    directSow: -7,
+    transplant: 7,
+    fallPlant: -42
+  },
+  {
+    name: "Black-Eyed Susan",
+    botanical: "Rudbeckia hirta",
+    type: "Short-lived perennial",
+    rangeLabel: "Eastern and central North America",
+    regions: ["AL", "AR", "CT", "DC", "DE", "GA", "IA", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "NC", "NE", "NH", "NJ", "NY", "OH", "OK", "ON", "PA", "RI", "SC", "SD", "TN", "VA", "VT", "WI", "WV"],
+    startIndoors: -42,
+    directSow: -7,
+    transplant: 7,
+    fallPlant: -42
+  },
+  {
+    name: "Wild Bergamot",
+    botanical: "Monarda fistulosa",
+    type: "Perennial wildflower",
+    rangeLabel: "Prairies, Midwest, Northeast, Interior West",
+    regions: ["AB", "AR", "CO", "IA", "ID", "IL", "IN", "KS", "KY", "MB", "MI", "MN", "MO", "MT", "ND", "NE", "NM", "OH", "OK", "ON", "PA", "SD", "SK", "TX", "WI", "WY"],
+    startIndoors: -56,
+    directSow: -7,
+    transplant: 7,
+    fallPlant: -49
+  },
+  {
+    name: "Butterfly Milkweed",
+    botanical: "Asclepias tuberosa",
+    type: "Perennial wildflower",
+    rangeLabel: "Eastern and central North America",
+    regions: ["AL", "AR", "CT", "DC", "DE", "FL", "GA", "IA", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "MI", "MN", "MO", "MS", "NC", "NE", "NH", "NJ", "NM", "NY", "OH", "OK", "ON", "PA", "RI", "SC", "SD", "TN", "TX", "VA", "VT", "WI", "WV"],
+    startIndoors: -70,
+    directSow: -14,
+    transplant: 14,
+    fallPlant: -56
+  },
+  {
+    name: "Swamp Milkweed",
+    botanical: "Asclepias incarnata",
+    type: "Perennial wildflower",
+    rangeLabel: "Great Lakes, Northeast, Midwest, Mid-Atlantic",
+    regions: ["AR", "CT", "DC", "DE", "IA", "IL", "IN", "KS", "KY", "MA", "MD", "ME", "MI", "MN", "MO", "NC", "NE", "NH", "NJ", "NY", "OH", "ON", "PA", "QC", "RI", "TN", "VA", "VT", "WI", "WV"],
+    startIndoors: -70,
+    directSow: -14,
+    transplant: 7,
+    fallPlant: -56
+  },
+  {
+    name: "New England Aster",
+    botanical: "Symphyotrichum novae-angliae",
+    type: "Perennial wildflower",
+    rangeLabel: "Northeast, Great Lakes, Upper Midwest",
+    regions: ["CT", "IA", "IL", "IN", "MA", "MD", "ME", "MI", "MN", "MO", "NB", "NC", "NH", "NJ", "NS", "NY", "OH", "ON", "PA", "QC", "RI", "VA", "VT", "WI", "WV"],
+    startIndoors: -56,
+    directSow: -7,
+    transplant: 7,
+    fallPlant: -42
+  },
+  {
+    name: "Joe-Pye Weed",
+    botanical: "Eutrochium purpureum",
+    type: "Perennial wildflower",
+    rangeLabel: "Northeast, Great Lakes, Appalachia",
+    regions: ["CT", "DC", "DE", "IA", "IL", "IN", "KY", "MA", "MD", "ME", "MI", "MN", "MO", "NC", "NH", "NJ", "NY", "OH", "ON", "PA", "QC", "RI", "TN", "VA", "VT", "WI", "WV"],
+    startIndoors: -70,
+    directSow: -14,
+    transplant: 7,
+    fallPlant: -49
+  },
+  {
+    name: "Cardinal Flower",
+    botanical: "Lobelia cardinalis",
+    type: "Perennial wildflower",
+    rangeLabel: "Eastern North America",
+    regions: ["AL", "AR", "CT", "DC", "DE", "FL", "GA", "IA", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "NC", "NE", "NH", "NJ", "NY", "OH", "OK", "ON", "PA", "QC", "RI", "SC", "TN", "TX", "VA", "VT", "WI", "WV"],
+    startIndoors: -70,
+    directSow: -14,
+    transplant: 7,
+    fallPlant: -49
+  },
+  {
+    name: "Blue False Indigo",
+    botanical: "Baptisia australis",
+    type: "Perennial wildflower",
+    rangeLabel: "Midwest and Upper South",
+    regions: ["AR", "IA", "IL", "IN", "KS", "KY", "MO", "NE", "OH", "OK", "TN"],
+    startIndoors: -84,
+    directSow: -14,
+    transplant: 14,
+    fallPlant: -56
+  },
+  {
+    name: "Wild Columbine",
+    botanical: "Aquilegia canadensis",
+    type: "Perennial wildflower",
+    rangeLabel: "Eastern forests and Great Lakes",
+    regions: ["AL", "AR", "CT", "DC", "DE", "GA", "IA", "IL", "IN", "KS", "KY", "MA", "MD", "ME", "MI", "MN", "MO", "NC", "NH", "NJ", "NY", "OH", "ON", "PA", "QC", "RI", "SC", "TN", "VA", "VT", "WI", "WV"],
+    startIndoors: -84,
+    directSow: -21,
+    transplant: -7,
+    fallPlant: -56
+  },
+  {
+    name: "Golden Alexander",
+    botanical: "Zizia aurea",
+    type: "Perennial wildflower",
+    rangeLabel: "Great Lakes, Midwest, Northeast",
+    regions: ["AR", "CT", "DC", "DE", "IA", "IL", "IN", "KS", "KY", "MA", "MD", "MI", "MN", "MO", "NC", "NE", "NH", "NJ", "NY", "OH", "ON", "PA", "RI", "TN", "VA", "VT", "WI", "WV"],
+    startIndoors: -70,
+    directSow: -14,
+    transplant: -7,
+    fallPlant: -49
+  },
+  {
+    name: "Virginia Bluebells",
+    botanical: "Mertensia virginica",
+    type: "Spring ephemeral",
+    rangeLabel: "Midwest, Ohio Valley, Mid-Atlantic",
+    regions: ["AR", "DC", "DE", "IA", "IL", "IN", "KS", "KY", "MD", "MI", "MO", "NC", "NJ", "NY", "OH", "ON", "PA", "TN", "VA", "WV"],
+    startIndoors: -84,
+    directSow: -21,
+    transplant: -14,
+    fallPlant: -56
+  },
+  {
+    name: "Prairie Dropseed",
+    botanical: "Sporobolus heterolepis",
+    type: "Warm-season grass",
+    rangeLabel: "Prairie states and Great Lakes",
+    regions: ["IA", "IL", "IN", "KS", "MB", "MI", "MN", "MO", "ND", "NE", "OH", "ON", "SD", "WI"],
+    startIndoors: -70,
+    directSow: 7,
+    transplant: 14,
+    fallPlant: -56
+  },
+  {
+    name: "Little Bluestem",
+    botanical: "Schizachyrium scoparium",
+    type: "Warm-season grass",
+    rangeLabel: "Most of eastern and central North America",
+    regions: ["AB", "AL", "AR", "CO", "CT", "DC", "DE", "GA", "IA", "IL", "IN", "KS", "KY", "LA", "MA", "MB", "MD", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NY", "OH", "OK", "ON", "PA", "QC", "SC", "SD", "SK", "TN", "TX", "VA", "VT", "WI", "WV", "WY"],
+    startIndoors: -56,
+    directSow: 7,
+    transplant: 14,
+    fallPlant: -56
+  },
+  {
+    name: "Switchgrass",
+    botanical: "Panicum virgatum",
+    type: "Warm-season grass",
+    rangeLabel: "Broadly native across much of North America",
+    regions: ["AL", "AR", "CO", "CT", "DC", "DE", "FL", "GA", "IA", "IL", "IN", "KS", "KY", "LA", "MA", "MB", "MD", "MI", "MN", "MO", "MS", "NC", "ND", "NE", "NH", "NJ", "NM", "NY", "OH", "OK", "ON", "PA", "QC", "SC", "SD", "SK", "TN", "TX", "VA", "VT", "WI", "WV"],
+    startIndoors: -56,
+    directSow: 7,
+    transplant: 14,
+    fallPlant: -56
+  },
+  {
+    name: "Culver's Root",
+    botanical: "Veronicastrum virginicum",
+    type: "Perennial wildflower",
+    rangeLabel: "Midwest, Great Lakes, Northeast, Appalachia",
+    regions: ["AL", "AR", "CT", "DC", "DE", "GA", "IA", "IL", "IN", "KY", "MA", "MD", "MI", "MN", "MO", "NC", "NH", "NJ", "NY", "OH", "ON", "PA", "RI", "SC", "TN", "VA", "VT", "WI", "WV"],
+    startIndoors: -70,
+    directSow: -7,
+    transplant: 7,
+    fallPlant: -42
+  },
+  {
+    name: "Foamflower",
+    botanical: "Tiarella cordifolia",
+    type: "Woodland perennial",
+    rangeLabel: "Appalachia, Northeast, Great Lakes",
+    regions: ["AL", "CT", "DC", "DE", "GA", "KY", "MA", "MD", "ME", "MI", "NC", "NH", "NJ", "NY", "OH", "ON", "PA", "RI", "SC", "TN", "VA", "VT", "WV"],
+    startIndoors: -84,
+    directSow: -21,
+    transplant: -14,
+    fallPlant: -56
+  },
+  {
+    name: "Wild Geranium",
+    botanical: "Geranium maculatum",
+    type: "Woodland perennial",
+    rangeLabel: "Eastern forests and Great Lakes",
+    regions: ["AL", "AR", "CT", "DC", "DE", "GA", "IA", "IL", "IN", "KS", "KY", "MA", "MD", "ME", "MI", "MN", "MO", "NC", "NH", "NJ", "NY", "OH", "ON", "PA", "RI", "SC", "TN", "VA", "VT", "WI", "WV"],
+    startIndoors: -84,
+    directSow: -21,
+    transplant: -7,
+    fallPlant: -56
+  },
+  {
+    name: "Serviceberry",
+    botanical: "Amelanchier alnifolia / arborea group",
+    type: "Shrub or small tree",
+    rangeLabel: "Broadly native across northern and central North America",
+    regions: ["AB", "AR", "BC", "CO", "CT", "IA", "ID", "IL", "IN", "KS", "KY", "MA", "MB", "MD", "ME", "MI", "MN", "MO", "MT", "NB", "NC", "ND", "NE", "NH", "NJ", "NM", "NS", "NY", "OH", "ON", "OR", "PA", "QC", "RI", "SD", "SK", "UT", "VA", "VT", "WA", "WI", "WV", "WY"],
+    transplant: 14,
+    fallPlant: -56
+  },
+  {
+    name: "Oakleaf Hydrangea",
+    botanical: "Hydrangea quercifolia",
+    type: "Shrub",
+    rangeLabel: "Southeast",
+    regions: ["AL", "FL", "GA", "LA", "MS", "NC", "SC", "TN"],
+    transplant: 14,
+    fallPlant: -56
+  },
+  {
+    name: "Coral Honeysuckle",
+    botanical: "Lonicera sempervirens",
+    type: "Vine",
+    rangeLabel: "Southeast and Mid-Atlantic",
+    regions: ["AL", "AR", "CT", "DC", "DE", "FL", "GA", "KY", "LA", "MD", "MS", "NC", "NJ", "PA", "SC", "TN", "TX", "VA", "WV"],
+    startIndoors: -70,
+    transplant: 14,
+    fallPlant: -56
+  },
+  {
+    name: "Muhly Grass",
+    botanical: "Muhlenbergia capillaris",
+    type: "Warm-season grass",
+    rangeLabel: "Southeast and Gulf Coast",
+    regions: ["AL", "AR", "DC", "DE", "FL", "GA", "LA", "MD", "MS", "NC", "NJ", "SC", "TN", "TX", "VA"],
+    directSow: 14,
+    transplant: 21,
+    fallPlant: -42
+  },
+  {
+    name: "Buttonbush",
+    botanical: "Cephalanthus occidentalis",
+    type: "Shrub",
+    rangeLabel: "Broadly native across eastern and central North America",
+    regions: ["AL", "AR", "BC", "CT", "DC", "DE", "FL", "GA", "IA", "IL", "IN", "KS", "KY", "LA", "MA", "MB", "MD", "MI", "MN", "MO", "MS", "NC", "NE", "NH", "NJ", "NM", "NY", "OH", "OK", "ON", "PA", "QC", "RI", "SC", "SD", "TN", "TX", "VA", "VT", "WI", "WV"],
+    transplant: 14,
+    fallPlant: -56
+  },
+  {
+    name: "Ninebark",
+    botanical: "Physocarpus opulifolius",
+    type: "Shrub",
+    rangeLabel: "Great Lakes, Northeast, Upper Midwest",
+    regions: ["CT", "DC", "DE", "IA", "IL", "IN", "KY", "MA", "MD", "ME", "MI", "MN", "MO", "NC", "NH", "NJ", "NY", "OH", "ON", "PA", "QC", "RI", "TN", "VA", "VT", "WI", "WV"],
+    transplant: 14,
+    fallPlant: -56
+  },
+  {
+    name: "American Elderberry",
+    botanical: "Sambucus canadensis",
+    type: "Shrub",
+    rangeLabel: "Eastern and central North America",
+    regions: ["AL", "AR", "CT", "DC", "DE", "FL", "GA", "IA", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "NC", "NE", "NH", "NJ", "NY", "OH", "OK", "ON", "PA", "QC", "RI", "SC", "TN", "TX", "VA", "VT", "WI", "WV"],
+    transplant: 14,
+    fallPlant: -56
+  },
+  {
+    name: "Red Osier Dogwood",
+    botanical: "Cornus sericea",
+    type: "Shrub",
+    rangeLabel: "Northern U.S., Canada, mountains and wetlands",
+    regions: ["AB", "AK", "BC", "CA", "CO", "CT", "IA", "ID", "IL", "IN", "MA", "MB", "MD", "ME", "MI", "MN", "MT", "NB", "ND", "NH", "NJ", "NM", "NS", "NY", "OH", "ON", "OR", "PA", "QC", "RI", "SD", "SK", "UT", "VA", "VT", "WA", "WI", "WV", "WY"],
+    transplant: 7,
+    fallPlant: -56
+  },
+  {
+    name: "Arrowwood Viburnum",
+    botanical: "Viburnum dentatum",
+    type: "Shrub",
+    rangeLabel: "Northeast, Great Lakes, Mid-Atlantic, Southeast",
+    regions: ["AL", "AR", "CT", "DC", "DE", "GA", "IL", "IN", "KY", "MA", "MD", "ME", "MI", "NC", "NH", "NJ", "NY", "OH", "ON", "PA", "QC", "RI", "SC", "TN", "VA", "VT", "WV"],
+    transplant: 14,
+    fallPlant: -56
+  },
+  {
+    name: "Northern Blue Flag",
+    botanical: "Iris versicolor",
+    type: "Perennial wetland plant",
+    rangeLabel: "Northeast, Great Lakes, eastern Canada",
+    regions: ["CT", "DE", "IA", "IL", "IN", "MA", "MD", "ME", "MI", "MN", "NB", "NH", "NJ", "NS", "NY", "OH", "ON", "PA", "QC", "RI", "VT", "WI"],
+    startIndoors: -84,
+    transplant: -7,
+    fallPlant: -56
+  },
+  {
+    name: "California Poppy",
+    botanical: "Eschscholzia californica",
+    type: "Annual or short-lived perennial",
+    rangeLabel: "California and Oregon",
+    regions: ["CA", "OR"],
+    directSow: -14,
+    transplant: 0,
+    fallPlant: -42
+  },
+  {
+    name: "Red Flowering Currant",
+    botanical: "Ribes sanguineum",
+    type: "Shrub",
+    rangeLabel: "Pacific coast from California to British Columbia",
+    regions: ["BC", "CA", "OR", "WA"],
+    transplant: 14,
+    fallPlant: -56
+  },
+  {
+    name: "Douglas Aster",
+    botanical: "Symphyotrichum subspicatum",
+    type: "Perennial wildflower",
+    rangeLabel: "Pacific Northwest coast",
+    regions: ["BC", "CA", "OR", "WA"],
+    startIndoors: -56,
+    directSow: -7,
+    transplant: 7,
+    fallPlant: -42
+  },
+  {
+    name: "California Fuchsia",
+    botanical: "Epilobium canum",
+    type: "Perennial wildflower",
+    rangeLabel: "California and interior Southwest",
+    regions: ["AZ", "CA", "NM"],
+    startIndoors: -56,
+    directSow: 7,
+    transplant: 14,
+    fallPlant: -42
+  },
+  {
+    name: "Western Columbine",
+    botanical: "Aquilegia formosa",
+    type: "Perennial wildflower",
+    rangeLabel: "Pacific coast and mountain West",
+    regions: ["AB", "AK", "AZ", "BC", "CA", "CO", "ID", "MT", "NM", "NV", "OR", "UT", "WA", "WY"],
+    startIndoors: -84,
+    directSow: -14,
+    transplant: -7,
+    fallPlant: -56
+  },
+  {
+    name: "Showy Milkweed",
+    botanical: "Asclepias speciosa",
+    type: "Perennial wildflower",
+    rangeLabel: "Mountain West and Pacific states",
+    regions: ["AB", "AZ", "BC", "CA", "CO", "ID", "MT", "NM", "NV", "OR", "SK", "UT", "WA", "WY"],
+    startIndoors: -70,
+    directSow: -14,
+    transplant: 14,
+    fallPlant: -56
+  },
+  {
+    name: "Blanketflower",
+    botanical: "Gaillardia aristata",
+    type: "Perennial wildflower",
+    rangeLabel: "Prairies and mountain West",
+    regions: ["AB", "AZ", "BC", "CO", "IA", "ID", "KS", "MB", "MN", "MT", "ND", "NE", "NM", "NV", "OK", "OR", "SD", "SK", "TX", "UT", "WA", "WY"],
+    startIndoors: -42,
+    directSow: -7,
+    transplant: 7,
+    fallPlant: -42
+  },
+  {
+    name: "Rocky Mountain Penstemon",
+    botanical: "Penstemon strictus",
+    type: "Perennial wildflower",
+    rangeLabel: "Central Rockies and nearby plains",
+    regions: ["CO", "NM", "UT", "WY"],
+    startIndoors: -56,
+    directSow: -7,
+    transplant: 7,
+    fallPlant: -42
+  },
+  {
+    name: "Firecracker Penstemon",
+    botanical: "Penstemon eatonii",
+    type: "Perennial wildflower",
+    rangeLabel: "Southwest and Intermountain West",
+    regions: ["AZ", "CO", "NM", "NV", "UT", "WY"],
+    startIndoors: -56,
+    directSow: -7,
+    transplant: 7,
+    fallPlant: -42
+  },
+  {
+    name: "Desert Marigold",
+    botanical: "Baileya multiradiata",
+    type: "Desert perennial",
+    rangeLabel: "Desert Southwest",
+    regions: ["AZ", "CA", "NM", "NV", "TX", "UT"],
+    directSow: 14,
+    transplant: 21,
+    fallPlant: -28
+  },
+  {
+    name: "Blue Grama",
+    botanical: "Bouteloua gracilis",
+    type: "Warm-season grass",
+    rangeLabel: "Great Plains and Southwest",
+    regions: ["AB", "AZ", "CO", "KS", "MB", "MT", "ND", "NE", "NM", "OK", "SD", "SK", "TX", "UT", "WY"],
+    directSow: 14,
+    transplant: 21,
+    fallPlant: -42
+  },
+  {
+    name: "Apache Plume",
+    botanical: "Fallugia paradoxa",
+    type: "Shrub",
+    rangeLabel: "Desert Southwest and southern Rockies",
+    regions: ["AZ", "CO", "NM", "NV", "TX", "UT"],
+    transplant: 21,
+    fallPlant: -42
+  },
+  {
+    name: "Autumn Sage",
+    botanical: "Salvia greggii",
+    type: "Subshrub",
+    rangeLabel: "Texas and the Southwest",
+    regions: ["AZ", "NM", "TX"],
+    startIndoors: -56,
+    transplant: 21,
+    fallPlant: -42
+  },
+  {
+    name: "Common Snowberry",
+    botanical: "Symphoricarpos albus",
+    type: "Shrub",
+    rangeLabel: "Northern plains, mountains, and Pacific Northwest",
+    regions: ["AB", "AK", "BC", "CA", "CO", "ID", "MB", "MN", "MT", "ND", "NE", "NM", "NV", "OR", "SD", "SK", "UT", "WA", "WI", "WY"],
+    transplant: 14,
+    fallPlant: -56
+  },
+  {
+    name: "Kinnikinnick",
+    botanical: "Arctostaphylos uva-ursi",
+    type: "Evergreen groundcover",
+    rangeLabel: "Northern forests and mountain West",
+    regions: ["AB", "AK", "BC", "CA", "CO", "CT", "ID", "MA", "MB", "ME", "MI", "MN", "MT", "NB", "NH", "NS", "NY", "ON", "OR", "PA", "QC", "UT", "VT", "WA", "WI", "WY"],
+    transplant: 7,
+    fallPlant: -56
+  },
+  {
+    name: "Nodding Onion",
+    botanical: "Allium cernuum",
+    type: "Perennial wildflower",
+    rangeLabel: "Broadly native across central and eastern North America",
+    regions: ["AB", "AR", "CO", "CT", "IA", "ID", "IL", "IN", "KS", "KY", "MA", "MB", "ME", "MI", "MN", "MO", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NY", "OH", "OK", "ON", "PA", "QC", "RI", "SD", "SK", "TN", "VA", "VT", "WI", "WY"],
+    startIndoors: -70,
+    directSow: -7,
+    transplant: 7,
+    fallPlant: -49
+  },
+  {
+    name: "Prairie Smoke",
+    botanical: "Geum triflorum",
+    type: "Perennial wildflower",
+    rangeLabel: "Prairies, Great Lakes, northern plains",
+    regions: ["AB", "BC", "CO", "IA", "ID", "IL", "IN", "KS", "MB", "MI", "MN", "MO", "MT", "ND", "NE", "NM", "OH", "ON", "SD", "SK", "WI", "WY"],
+    startIndoors: -70,
+    directSow: -14,
+    transplant: -7,
+    fallPlant: -49
+  },
+  {
+    name: "Anise Hyssop",
+    botanical: "Agastache foeniculum",
+    type: "Perennial wildflower",
+    rangeLabel: "Upper Midwest and northern plains",
+    regions: ["AB", "CO", "IA", "IL", "KS", "MB", "MI", "MN", "MT", "ND", "NE", "OH", "ON", "SD", "SK", "WI", "WY"],
+    startIndoors: -56,
+    directSow: -7,
+    transplant: 7,
+    fallPlant: -42
+  },
+  {
+    name: "Blue Vervain",
+    botanical: "Verbena hastata",
+    type: "Perennial wildflower",
+    rangeLabel: "Eastern and central wetlands",
+    regions: ["AL", "AR", "CT", "DC", "DE", "GA", "IA", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "NC", "NE", "NH", "NJ", "NY", "OH", "ON", "PA", "QC", "RI", "SC", "TN", "VA", "VT", "WI", "WV"],
+    startIndoors: -56,
+    directSow: -7,
+    transplant: 7,
+    fallPlant: -42
+  },
+  {
+    name: "Common Yarrow",
+    botanical: "Achillea millefolium",
+    type: "Perennial wildflower",
+    rangeLabel: "Widely native across northern North America",
+    regions: ["AB", "AK", "BC", "CA", "CO", "CT", "IA", "ID", "IL", "IN", "KS", "MA", "MB", "MD", "ME", "MI", "MN", "MO", "MT", "NB", "NC", "ND", "NE", "NH", "NJ", "NM", "NS", "NY", "OH", "ON", "OR", "PA", "QC", "RI", "SD", "SK", "UT", "VA", "VT", "WA", "WI", "WY"],
+    startIndoors: -42,
+    directSow: -7,
+    transplant: 7,
+    fallPlant: -42
+  },
+  {
+    name: "Meadow Blazing Star",
+    botanical: "Liatris ligulistylis",
+    type: "Perennial wildflower",
+    rangeLabel: "Great Lakes and central plains",
+    regions: ["IA", "IL", "IN", "KS", "MB", "MI", "MN", "MO", "ND", "NE", "OH", "ON", "SD", "WI"],
+    startIndoors: -70,
+    directSow: -14,
+    transplant: 7,
+    fallPlant: -49
+  },
+  {
+    name: "Sideoats Grama",
+    botanical: "Bouteloua curtipendula",
+    type: "Warm-season grass",
+    rangeLabel: "Plains, Midwest, South, and Southwest",
+    regions: ["AB", "AZ", "CO", "IA", "ID", "IL", "IN", "KS", "KY", "MB", "MI", "MN", "MO", "MT", "ND", "NE", "NM", "OH", "OK", "ON", "SD", "SK", "TX", "UT", "WI", "WY"],
+    directSow: 14,
+    transplant: 21,
+    fallPlant: -42
+  }
+];
