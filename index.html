@@ -16,9 +16,10 @@
       --accent-2: #527a63;
       --line: rgba(53, 88, 71, 0.18);
       --shadow: 0 18px 40px rgba(52, 60, 55, 0.12);
-      --hero-overlay: linear-gradient(135deg, rgba(53, 88, 71, 0.14), rgba(82, 122, 99, 0.08));
-      --hero-pattern-a: rgba(255, 255, 255, 0.35);
-      --hero-pattern-b: rgba(255, 255, 255, 0.12);
+      --hero-overlay-a: rgba(53, 88, 71, 0.14);
+      --hero-overlay-b: rgba(82, 122, 99, 0.08);
+      --hero-pattern-a: rgba(255, 255, 255, 0.22);
+      --hero-pattern-b: rgba(255, 255, 255, 0.10);
       --body-gradient-top: #eef2ea;
       --body-gradient-bottom: #dfe5dd;
       --radial-warm: rgba(82, 122, 99, 0.10);
@@ -40,7 +41,8 @@
       --accent-2: #7aa287;
       --line: rgba(136, 180, 154, 0.16);
       --shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
-      --hero-overlay: linear-gradient(135deg, rgba(72, 111, 92, 0.28), rgba(95, 138, 113, 0.16));
+      --hero-overlay-a: rgba(72, 111, 92, 0.28);
+      --hero-overlay-b: rgba(95, 138, 113, 0.16);
       --hero-pattern-a: rgba(255, 255, 255, 0.06);
       --hero-pattern-b: rgba(255, 255, 255, 0.02);
       --body-gradient-top: #18201d;
@@ -53,9 +55,7 @@
       --input-bg: rgba(10, 17, 14, 0.85);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -82,25 +82,26 @@
       backdrop-filter: blur(10px);
     }
 
+    /* FIX: hero now uses CSS variables so dark mode pattern colors update correctly */
     .hero {
-  padding: 32px 28px 18px;
+      padding: 32px 28px 18px;
+      background:
+        linear-gradient(
+          135deg,
+          var(--hero-overlay-a),
+          var(--hero-overlay-b)
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          var(--hero-pattern-a),
+          var(--hero-pattern-a) 12px,
+          var(--hero-pattern-b) 12px,
+          var(--hero-pattern-b) 24px
+        );
+      border-bottom: 1px solid var(--line);
+      transition: background 180ms ease;
+    }
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(53, 88, 71, 0.14),
-      rgba(82, 122, 99, 0.08)
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      rgba(255, 255, 255, 0.22),
-      rgba(255, 255, 255, 0.22) 12px,
-      rgba(255, 255, 255, 0.10) 12px,
-      rgba(255, 255, 255, 0.10) 24px
-    );
-
-  border-bottom: 1px solid var(--line);
-}
     h1 {
       margin: 0 0 8px;
       font-size: clamp(2rem, 4vw, 3rem);
@@ -142,11 +143,7 @@
       border: 1px solid var(--line);
     }
 
-    button,
-    input,
-    select {
-      font: inherit;
-    }
+    button, input, select { font: inherit; }
 
     select {
       padding: 11px 14px;
@@ -164,20 +161,10 @@
       transition: transform 120ms ease, opacity 120ms ease, background 120ms ease;
     }
 
-    button:hover {
-      transform: translateY(-1px);
-    }
+    button:hover { transform: translateY(-1px); }
+    button:disabled { cursor: wait; opacity: 0.7; transform: none; }
 
-    button:disabled {
-      cursor: wait;
-      opacity: 0.7;
-      transform: none;
-    }
-
-    .primary {
-      background: var(--accent);
-      color: white;
-    }
+    .primary { background: var(--accent); color: white; }
 
     .secondary {
       background: rgba(53, 88, 71, 0.12);
@@ -196,9 +183,7 @@
       border: 1px solid var(--line);
     }
 
-    .zip-form label {
-      font-weight: 600;
-    }
+    .zip-form label { font-weight: 600; }
 
     .zip-form input {
       min-width: 180px;
@@ -210,11 +195,7 @@
       color: var(--ink);
     }
 
-    .status {
-      margin: 0;
-      min-height: 1.5em;
-      color: var(--soft-ink);
-    }
+    .status { margin: 0; min-height: 1.5em; color: var(--soft-ink); }
 
     .result-grid {
       display: grid;
@@ -238,11 +219,7 @@
       letter-spacing: 0.08em;
     }
 
-    .value {
-      font-size: 1.2rem;
-      font-weight: 700;
-      word-break: break-word;
-    }
+    .value { font-size: 1.2rem; font-weight: 700; word-break: break-word; }
 
     .zone {
       background:
@@ -266,15 +243,8 @@
       gap: 14px;
     }
 
-    .planner-header {
-      display: grid;
-      gap: 6px;
-    }
-
-    .planner-title {
-      margin: 0;
-      font-size: 1.5rem;
-    }
+    .planner-header { display: grid; gap: 6px; }
+    .planner-title { margin: 0; font-size: 1.5rem; }
 
     .planner-copy {
       margin: 0;
@@ -282,10 +252,7 @@
       line-height: 1.6;
     }
 
-    .planner-summary {
-      font-weight: 600;
-      color: var(--accent);
-    }
+    .planner-summary { font-weight: 600; color: var(--accent); }
 
     .planner-table-wrap {
       overflow-x: auto;
@@ -294,11 +261,7 @@
       background: var(--panel-strong);
     }
 
-    .planner-table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 860px;
-    }
+    .planner-table { width: 100%; border-collapse: collapse; min-width: 860px; }
 
     .planner-table th,
     .planner-table td {
@@ -318,18 +281,9 @@
       top: 0;
     }
 
-    .planner-table tbody tr:nth-child(odd) {
-      background: var(--table-row);
-    }
-
-    .crop-name {
-      font-weight: 700;
-    }
-
-    .crop-note {
-      color: var(--soft-ink);
-      font-size: 0.92rem;
-    }
+    .planner-table tbody tr:nth-child(odd) { background: var(--table-row); }
+    .crop-name { font-weight: 700; }
+    .crop-note { color: var(--soft-ink); font-size: 0.92rem; }
 
     .planner-empty {
       padding: 16px;
@@ -349,10 +303,7 @@
       gap: 12px;
     }
 
-    .forecast-headline {
-      margin: 0;
-      font-size: 1.35rem;
-    }
+    .forecast-headline { margin: 0; font-size: 1.35rem; }
 
     .forecast-status {
       padding: 14px 16px;
@@ -400,10 +351,7 @@
       letter-spacing: 0.05em;
     }
 
-    .forecast-temp {
-      font-size: 1.15rem;
-      font-weight: 700;
-    }
+    .forecast-temp { font-size: 1.15rem; font-weight: 700; }
 
     .forecast-note {
       color: var(--soft-ink);
@@ -421,16 +369,8 @@
       gap: 12px;
     }
 
-    .resource-title {
-      margin: 0;
-      font-size: 1.35rem;
-    }
-
-    .resource-copy {
-      margin: 0;
-      color: var(--soft-ink);
-      line-height: 1.6;
-    }
+    .resource-title { margin: 0; font-size: 1.35rem; }
+    .resource-copy { margin: 0; color: var(--soft-ink); line-height: 1.6; }
 
     .resource-link {
       display: inline-flex;
@@ -446,18 +386,11 @@
       font-weight: 700;
     }
 
-    .resource-link:hover {
-      transform: translateY(-1px);
-    }
-
-    a {
-      color: var(--accent);
-    }
+    .resource-link:hover { transform: translateY(-1px); }
+    a { color: var(--accent); }
 
     @media (max-width: 640px) {
-      .actions {
-        justify-content: flex-start;
-      }
+      .actions { justify-content: flex-start; }
     }
   </style>
 </head>
@@ -477,7 +410,6 @@
           <button id="themeToggleButton" class="theme-toggle" type="button">Switch To Dark Mode</button>
         </div>
         <div class="action-group">
-       
           <select id="tempUnitSelect" aria-label="Temperature unit">
             <option value="fahrenheit">Fahrenheit</option>
             <option value="celsius">Celsius</option>
@@ -498,32 +430,26 @@
           <span class="label">Place</span>
           <div id="placeValue" class="value">Unknown</div>
         </article>
-
         <article class="result-box">
           <span class="label">Coordinates</span>
           <div id="coordinatesValue" class="value">Not loaded yet</div>
         </article>
-
         <article class="result-box">
           <span class="label">ZIP Code</span>
           <div id="zipValue" class="value">Not loaded yet</div>
         </article>
-
         <article class="result-box zone">
           <span class="label">Hardiness Zone</span>
           <div id="zoneValue" class="value">Not loaded yet</div>
         </article>
-
         <article class="result-box">
           <span class="label">Last Spring Frost</span>
           <div id="lastFrostValue" class="value">Not loaded yet</div>
         </article>
-
         <article class="result-box">
           <span class="label">First Fall Frost</span>
           <div id="firstFrostValue" class="value">Not loaded yet</div>
         </article>
-
         <article class="result-box">
           <span class="label">Growing Season</span>
           <div id="growingSeasonValue" class="value">Not loaded yet</div>
@@ -550,58 +476,37 @@
       <section class="planner">
         <div class="planner-header">
           <h2 class="planner-title">Vegetable Planting Planner</h2>
-          <p class="planner-copy">
-            These dates are estimated from your frost dates. Use them as a smart starting point, then adjust for weather, soil temperature, and your own microclimate.
-          </p>
+          <p class="planner-copy">These dates are estimated from your frost dates. Use them as a smart starting point, then adjust for weather, soil temperature, and your own microclimate.</p>
           <div id="plannerSummary" class="planner-summary">Load your location or a ZIP code to build the planner.</div>
         </div>
-
-        <div id="plannerContainer" class="planner-empty">
-          Your vegetable schedule will appear here after the page knows your frost dates.
-        </div>
+        <div id="plannerContainer" class="planner-empty">Your vegetable schedule will appear here after the page knows your frost dates.</div>
       </section>
 
       <section class="planner">
         <div class="planner-header">
           <h2 class="planner-title">Herb Planting Planner</h2>
-          <p class="planner-copy">
-            Herbs often forgive small timing mistakes, but these dates still help you avoid chilly setbacks.
-          </p>
+          <p class="planner-copy">Herbs often forgive small timing mistakes, but these dates still help you avoid chilly setbacks.</p>
           <div id="herbSummary" class="planner-summary">Load your location or a ZIP code to build the herb planner.</div>
         </div>
-
-        <div id="herbContainer" class="planner-empty">
-          Your herb schedule will appear here after the page knows your frost dates.
-        </div>
+        <div id="herbContainer" class="planner-empty">Your herb schedule will appear here after the page knows your frost dates.</div>
       </section>
 
       <section class="planner">
         <div class="planner-header">
           <h2 class="planner-title">Flower Planting Planner</h2>
-          <p class="planner-copy">
-            These dates focus on common garden flowers and pollinator-friendly bloomers that gardeners often start from seed.
-          </p>
+          <p class="planner-copy">These dates focus on common garden flowers and pollinator-friendly bloomers that gardeners often start from seed.</p>
           <div id="flowerSummary" class="planner-summary">Load your location or a ZIP code to build the flower planner.</div>
         </div>
-
-        <div id="flowerContainer" class="planner-empty">
-          Your flower schedule will appear here after the page knows your frost dates.
-        </div>
+        <div id="flowerContainer" class="planner-empty">Your flower schedule will appear here after the page knows your frost dates.</div>
       </section>
 
       <section class="planner">
         <div class="planner-header">
           <h2 class="planner-title">Local Native Plant Planner</h2>
-          <p class="planner-copy">
-            This section uses a curated list of North American native plants that are commonly used by gardeners, landscapers, and habitat restorers. It filters by your state or province and then estimates sowing or transplant windows from your frost dates.
-          </p>
+          <p class="planner-copy">This section uses a curated list of North American native plants that are commonly used by gardeners, landscapers, and habitat restorers. It filters by your state or province and then estimates sowing or transplant windows from your frost dates.</p>
           <div id="nativeSummary" class="planner-summary">Load your location to build the native plant planner for your area.</div>
         </div>
-
-        <div id="nativeContainer" class="planner-empty">
-          Your local native plant list will appear here after we know both your frost dates and your state or province.
-        </div>
-
+        <div id="nativeContainer" class="planner-empty">Your local native plant list will appear here after we know both your frost dates and your state or province.</div>
         <p class="resource-copy">
           This is a broad in-page planner, not a county-by-county flora. Range matching is approximate at the state or province level.
           Source links:
@@ -620,7 +525,6 @@
     const findMeButton = document.getElementById("findMeButton");
     const zipForm = document.getElementById("zipForm");
     const zipInput = document.getElementById("zipInput");
-
     const statusMessage = document.getElementById("statusMessage");
     const placeValue = document.getElementById("placeValue");
     const coordinatesValue = document.getElementById("coordinatesValue");
@@ -650,11 +554,7 @@
     let currentLocale = "en-US";
     let currentTempUnit = "fahrenheit";
     let lastForecastDays = [];
-    let currentFrostDates = {
-      lastSpringFrost: "",
-      firstFallFrost: "",
-      growingSeason: ""
-    };
+    let currentFrostDates = { lastSpringFrost: "", firstFallFrost: "", growingSeason: "" };
 
     const VEGETABLES = [
       { name: "Artichoke", note: "Long-season crop", startIndoors: -70, transplant: 14 },
@@ -765,48 +665,26 @@
       { name: "Poppy", note: "Direct sow early", directSow: -28, fallPlant: -42 }
     ];
 
-    const MONTHS = {
-      Jan: 0,
-      Feb: 1,
-      Mar: 2,
-      Apr: 3,
-      May: 4,
-      Jun: 5,
-      Jul: 6,
-      Aug: 7,
-      Sep: 8,
-      Oct: 9,
-      Nov: 10,
-      Dec: 11
-    };
+    const MONTHS = { Jan:0, Feb:1, Mar:2, Apr:3, May:4, Jun:5, Jul:6, Aug:7, Sep:8, Oct:9, Nov:10, Dec:11 };
 
     function applyTheme(theme) {
       document.body.classList.toggle("dark", theme === "dark");
-      themeToggleButton.textContent = theme === "dark"
-        ? "Switch To Light Mode"
-        : "Switch To Dark Mode";
+      themeToggleButton.textContent = theme === "dark" ? "Switch To Light Mode" : "Switch To Dark Mode";
       localStorage.setItem("gardenTheme", theme);
     }
 
     function initializePreferences() {
-      const savedLocale = localStorage.getItem("gardenLocale");
       const savedTempUnit = localStorage.getItem("gardenTempUnit");
-      currentLocale = savedLocale || "en-US";
-      currentTempUnit = savedTempUnit || (currentLocale === "en-US" ? "fahrenheit" : "celsius");
-      localeSelect.value = currentLocale;
+      currentTempUnit = savedTempUnit || "fahrenheit";
       tempUnitSelect.value = currentTempUnit;
     }
 
     function savePreferences() {
-      localStorage.setItem("gardenLocale", currentLocale);
       localStorage.setItem("gardenTempUnit", currentTempUnit);
     }
 
     function convertTempFromF(value) {
-      if (!Number.isFinite(value)) {
-        return null;
-      }
-
+      if (!Number.isFinite(value)) return null;
       return currentTempUnit === "celsius" ? (value - 32) * 5 / 9 : value;
     }
 
@@ -816,22 +694,13 @@
 
     function initializeTheme() {
       const savedTheme = localStorage.getItem("gardenTheme");
-      if (savedTheme === "dark" || savedTheme === "light") {
-        applyTheme(savedTheme);
-        return;
-      }
-
+      if (savedTheme === "dark" || savedTheme === "light") { applyTheme(savedTheme); return; }
       const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
       applyTheme(prefersDark ? "dark" : "light");
     }
 
-    function setStatus(message) {
-      statusMessage.textContent = message;
-    }
-
-    function setBusy(isBusy) {
-      findMeButton.disabled = isBusy;
-    }
+    function setStatus(message) { statusMessage.textContent = message; }
+    function setBusy(isBusy) { findMeButton.disabled = isBusy; }
 
     function renderForecastStatus(message, tone) {
       forecastStatus.textContent = message;
@@ -840,11 +709,7 @@
 
     function renderForecastDays(days) {
       lastForecastDays = days;
-      if (!days.length) {
-        forecastMini.innerHTML = "";
-        return;
-      }
-
+      if (!days.length) { forecastMini.innerHTML = ""; return; }
       forecastMini.innerHTML = days.map((day) => (
         "<article class='forecast-day'>" +
           "<span class='forecast-day-name'>" + day.label + "</span>" +
@@ -858,21 +723,15 @@
       const state = location.principalSubdivision || "Unknown state";
       const postcode = location.postcode || "Not found";
       const subdivisionCode = location.principalSubdivisionCode || "";
-
       placeValue.textContent = city + ", " + state;
       zipValue.textContent = postcode;
       currentZipCode = /^\d{5}$/.test(postcode) ? postcode : "";
-      currentRegionCode = subdivisionCode.includes("-")
-        ? subdivisionCode.split("-").pop()
-        : subdivisionCode;
+      currentRegionCode = subdivisionCode.includes("-") ? subdivisionCode.split("-").pop() : subdivisionCode;
       updateNativePlantsSection();
     }
 
     function updateCoordinatesDisplay(latitude, longitude) {
-      const formatter = new Intl.NumberFormat(currentLocale, {
-        minimumFractionDigits: 4,
-        maximumFractionDigits: 4
-      });
+      const formatter = new Intl.NumberFormat(currentLocale, { minimumFractionDigits: 4, maximumFractionDigits: 4 });
       coordinatesValue.textContent = formatter.format(latitude) + ", " + formatter.format(longitude);
     }
 
@@ -888,28 +747,15 @@
     }
 
     function showFrostUnavailable(reason) {
-      updateFrostDisplay({
-        lastSpringFrost: "Unavailable",
-        firstFallFrost: "Unavailable",
-        growingSeason: "Unavailable"
-      });
-
-      if (reason) {
-        console.warn("Frost date lookup unavailable:", reason);
-      }
+      updateFrostDisplay({ lastSpringFrost: "Unavailable", firstFallFrost: "Unavailable", growingSeason: "Unavailable" });
+      if (reason) console.warn("Frost date lookup unavailable:", reason);
     }
 
     function parseMonthDay(value, year) {
-      if (!value || !/^[A-Z][a-z]{2} \d{1,2}$/.test(value)) {
-        return null;
-      }
-
+      if (!value || !/^[A-Z][a-z]{2} \d{1,2}$/.test(value)) return null;
       const [monthText, dayText] = value.split(" ");
       const monthIndex = MONTHS[monthText];
-      if (monthIndex === undefined) {
-        return null;
-      }
-
+      if (monthIndex === undefined) return null;
       return new Date(year, monthIndex, Number(dayText));
     }
 
@@ -920,262 +766,126 @@
     }
 
     function formatMonthDay(date) {
-      return date.toLocaleDateString(currentLocale, {
-        month: "short",
-        day: "numeric"
-      });
+      return date.toLocaleDateString(currentLocale, { month: "short", day: "numeric" });
     }
 
     function formatWeekday(isoDate) {
-      if (!isoDate) {
-        return "Day";
-      }
-
+      if (!isoDate) return "Day";
       const date = new Date(isoDate + "T12:00:00");
-      if (Number.isNaN(date.getTime())) {
-        return "Day";
-      }
-
+      if (Number.isNaN(date.getTime())) return "Day";
       return date.toLocaleDateString(currentLocale, { weekday: "short" });
     }
 
     function formatForecastTemp(value) {
-      if (!Number.isFinite(value)) {
-        return "Data unavailable";
-      }
-
+      if (!Number.isFinite(value)) return "Data unavailable";
       return Math.round(convertTempFromF(value)) + " " + tempSuffix();
     }
 
     async function lookupFrostWarning(latitude, longitude) {
       renderForecastStatus("Checking localized forecast lows...", "");
-
       const url =
         "https://api.open-meteo.com/v1/forecast" +
         "?latitude=" + encodeURIComponent(latitude) +
         "&longitude=" + encodeURIComponent(longitude) +
-        "&daily=temperature_2m_min" +
-        "&temperature_unit=fahrenheit" +
-        "&forecast_days=5" +
-        "&timezone=auto";
-
+        "&daily=temperature_2m_min&temperature_unit=fahrenheit&forecast_days=5&timezone=auto";
       const forecast = await fetchJson(url);
       const daily = forecast.daily;
-
-      if (!daily || !daily.time || !daily.temperature_2m_min) {
-        throw new Error("Forecast data was unavailable.");
-      }
-
+      if (!daily || !daily.time || !daily.temperature_2m_min) throw new Error("Forecast data was unavailable.");
       const days = daily.time.map((dateText, index) => ({
         label: formatWeekday(dateText),
         temp: daily.temperature_2m_min[index],
         tempText: formatForecastTemp(daily.temperature_2m_min[index])
       })).filter((day) => Number.isFinite(day.temp));
-
       renderForecastDays(days);
-
-      if (!days.length) {
-        throw new Error("Forecast values were incomplete.");
-      }
-
+      if (!days.length) throw new Error("Forecast values were incomplete.");
       const freezeDay = days.find((day) => day.temp <= 32);
       const frostDay = days.find((day) => day.temp > 32 && day.temp <= 36);
-
       if (freezeDay) {
-        renderForecastStatus(
-          "Freeze warning: " + freezeDay.label + " is forecast near " + freezeDay.tempText + ". Protect tender plants.",
-          "danger"
-        );
+        renderForecastStatus("Freeze warning: " + freezeDay.label + " is forecast near " + freezeDay.tempText + ". Protect tender plants.", "danger");
         return;
       }
-
       if (frostDay) {
-        renderForecastStatus(
-          "Frost watch: " + frostDay.label + " is forecast near " + frostDay.tempText + ". Sensitive plants may need cover.",
-          "warning"
-        );
+        renderForecastStatus("Frost watch: " + frostDay.label + " is forecast near " + frostDay.tempText + ". Sensitive plants may need cover.", "warning");
         return;
       }
-
       const mildestLow = Math.min(...days.map((day) => day.temp));
-      renderForecastStatus(
-        "No frost warning in the next 5 days. The coldest forecast low is about " + formatForecastTemp(mildestLow) + ".",
-        "safe"
-      );
+      renderForecastStatus("No frost warning in the next 5 days. The coldest forecast low is about " + formatForecastTemp(mildestLow) + ".", "safe");
     }
 
     function buildPlannerDate(anchorDate, offsetDays) {
-      if (!anchorDate && anchorDate !== 0) {
-        return "-";
-      }
-
+      if (!anchorDate && anchorDate !== 0) return "-";
       return formatMonthDay(shiftDate(anchorDate, offsetDays));
     }
 
     function renderVegetablePlanner() {
-      renderCropPlanner({
-        crops: VEGETABLES,
-        title: "vegetable planner",
-        summaryElement: plannerSummary,
-        containerElement: plannerContainer,
-        firstColumnLabel: "Vegetable"
-      });
+      renderCropPlanner({ crops: VEGETABLES, title: "vegetable planner", summaryElement: plannerSummary, containerElement: plannerContainer, firstColumnLabel: "Vegetable" });
     }
 
     function renderHerbPlanner() {
-      renderCropPlanner({
-        crops: HERBS,
-        title: "herb planner",
-        summaryElement: herbSummary,
-        containerElement: herbContainer,
-        firstColumnLabel: "Herb"
-      });
+      renderCropPlanner({ crops: HERBS, title: "herb planner", summaryElement: herbSummary, containerElement: herbContainer, firstColumnLabel: "Herb" });
     }
 
     function renderFlowerPlanner() {
-      renderCropPlanner({
-        crops: FLOWERS,
-        title: "flower planner",
-        summaryElement: flowerSummary,
-        containerElement: flowerContainer,
-        firstColumnLabel: "Flower"
-      });
+      renderCropPlanner({ crops: FLOWERS, title: "flower planner", summaryElement: flowerSummary, containerElement: flowerContainer, firstColumnLabel: "Flower" });
     }
 
     function renderNativePlantPlanner() {
       const year = new Date().getFullYear();
       const lastSpringDate = parseMonthDay(currentFrostDates.lastSpringFrost, year);
       const firstFallDate = parseMonthDay(currentFrostDates.firstFallFrost, year);
-
       if (!currentRegionCode) {
         nativeSummary.textContent = "Load your location to match native plants to your state or province.";
         nativeContainer.className = "planner-empty";
         nativeContainer.innerHTML = "This planner needs your location so it can match a broad native range to your area.";
         return;
       }
-
       if (!lastSpringDate || !firstFallDate) {
         nativeSummary.textContent = "Load a usable frost profile to build native planting dates for " + currentRegionCode + ".";
         nativeContainer.className = "planner-empty";
         nativeContainer.innerHTML = "Native planting dates appear after we know both your last spring frost and first fall frost dates.";
         return;
       }
-
       const plants = (window.NATIVE_GARDEN_PLANTS || []).filter((plant) => plant.regions.includes(currentRegionCode));
-
       if (!plants.length) {
         nativeSummary.textContent = "No broad in-page native list is ready yet for " + currentRegionCode + ".";
         nativeContainer.className = "planner-empty";
         nativeContainer.innerHTML = "Try browser location in a nearby state or expand the curated dataset.";
         return;
       }
-
-      nativeSummary.textContent =
-        "Showing " + plants.length + " broad-range native plants for " + currentRegionCode +
+      nativeSummary.textContent = "Showing " + plants.length + " broad-range native plants for " + currentRegionCode +
         ", with dates estimated from last spring frost " + currentFrostDates.lastSpringFrost +
         " and first fall frost " + currentFrostDates.firstFallFrost + ".";
-
       const rows = plants.map((plant) => {
-        const startIndoors = plant.startIndoors !== undefined
-          ? buildPlannerDate(lastSpringDate, plant.startIndoors)
-          : "-";
-        const directSow = plant.directSow !== undefined
-          ? buildPlannerDate(lastSpringDate, plant.directSow)
-          : "-";
-        const transplant = plant.transplant !== undefined
-          ? buildPlannerDate(lastSpringDate, plant.transplant)
-          : "-";
-        const fallPlant = plant.fallPlant !== undefined
-          ? buildPlannerDate(firstFallDate, plant.fallPlant)
-          : "-";
-
-        return (
-          "<tr>" +
-            "<td><div class='crop-name'>" + plant.name + "</div><div class='crop-note'><em>" + plant.botanical + "</em> · " + plant.type + "</div></td>" +
-            "<td>" + plant.rangeLabel + "</td>" +
-            "<td>" + startIndoors + "</td>" +
-            "<td>" + directSow + "</td>" +
-            "<td>" + transplant + "</td>" +
-            "<td>" + fallPlant + "</td>" +
-          "</tr>"
-        );
+        const startIndoors = plant.startIndoors !== undefined ? buildPlannerDate(lastSpringDate, plant.startIndoors) : "-";
+        const directSow = plant.directSow !== undefined ? buildPlannerDate(lastSpringDate, plant.directSow) : "-";
+        const transplant = plant.transplant !== undefined ? buildPlannerDate(lastSpringDate, plant.transplant) : "-";
+        const fallPlant = plant.fallPlant !== undefined ? buildPlannerDate(firstFallDate, plant.fallPlant) : "-";
+        return "<tr><td><div class='crop-name'>" + plant.name + "</div><div class='crop-note'><em>" + plant.botanical + "</em> · " + plant.type + "</div></td><td>" + plant.rangeLabel + "</td><td>" + startIndoors + "</td><td>" + directSow + "</td><td>" + transplant + "</td><td>" + fallPlant + "</td></tr>";
       }).join("");
-
       nativeContainer.className = "planner-table-wrap";
-      nativeContainer.innerHTML =
-        "<table class='planner-table'>" +
-          "<thead>" +
-            "<tr>" +
-              "<th>Native Plant</th>" +
-              "<th>Broad Native Range</th>" +
-              "<th>Start Indoors</th>" +
-              "<th>Direct Sow</th>" +
-              "<th>Transplant Out</th>" +
-              "<th>Fall/Winter Sow</th>" +
-            "</tr>" +
-          "</thead>" +
-          "<tbody>" + rows + "</tbody>" +
-        "</table>";
+      nativeContainer.innerHTML = "<table class='planner-table'><thead><tr><th>Native Plant</th><th>Broad Native Range</th><th>Start Indoors</th><th>Direct Sow</th><th>Transplant Out</th><th>Fall/Winter Sow</th></tr></thead><tbody>" + rows + "</tbody></table>";
     }
 
     function renderCropPlanner(config) {
       const year = new Date().getFullYear();
       const lastSpringDate = parseMonthDay(currentFrostDates.lastSpringFrost, year);
       const firstFallDate = parseMonthDay(currentFrostDates.firstFallFrost, year);
-
       if (!lastSpringDate || !firstFallDate) {
         config.summaryElement.textContent = "Load a usable ZIP-based frost profile to build the " + config.title + ".";
         config.containerElement.className = "planner-empty";
         config.containerElement.innerHTML = "This schedule appears after we know both your last spring frost and first fall frost dates.";
         return;
       }
-
-      config.summaryElement.textContent =
-        "Built from last spring frost " +
-        currentFrostDates.lastSpringFrost +
-        " and first fall frost " +
-        currentFrostDates.firstFallFrost +
-        ".";
-
+      config.summaryElement.textContent = "Built from last spring frost " + currentFrostDates.lastSpringFrost + " and first fall frost " + currentFrostDates.firstFallFrost + ".";
       const rows = config.crops.map((crop) => {
-        const startIndoors = crop.startIndoors !== undefined
-          ? buildPlannerDate(lastSpringDate, crop.startIndoors)
-          : "-";
-        const directSow = crop.directSow !== undefined
-          ? buildPlannerDate(lastSpringDate, crop.directSow)
-          : "-";
-        const transplant = crop.transplant !== undefined
-          ? buildPlannerDate(lastSpringDate, crop.transplant)
-          : "-";
-        const fallPlant = crop.fallPlant !== undefined
-          ? buildPlannerDate(firstFallDate, crop.fallPlant)
-          : "-";
-
-        return (
-          "<tr>" +
-            "<td><div class='crop-name'>" + crop.name + "</div><div class='crop-note'>" + crop.note + "</div></td>" +
-            "<td>" + startIndoors + "</td>" +
-            "<td>" + directSow + "</td>" +
-            "<td>" + transplant + "</td>" +
-            "<td>" + fallPlant + "</td>" +
-          "</tr>"
-        );
+        const startIndoors = crop.startIndoors !== undefined ? buildPlannerDate(lastSpringDate, crop.startIndoors) : "-";
+        const directSow = crop.directSow !== undefined ? buildPlannerDate(lastSpringDate, crop.directSow) : "-";
+        const transplant = crop.transplant !== undefined ? buildPlannerDate(lastSpringDate, crop.transplant) : "-";
+        const fallPlant = crop.fallPlant !== undefined ? buildPlannerDate(firstFallDate, crop.fallPlant) : "-";
+        return "<tr><td><div class='crop-name'>" + crop.name + "</div><div class='crop-note'>" + crop.note + "</div></td><td>" + startIndoors + "</td><td>" + directSow + "</td><td>" + transplant + "</td><td>" + fallPlant + "</td></tr>";
       }).join("");
-
       config.containerElement.className = "planner-table-wrap";
-      config.containerElement.innerHTML =
-        "<table class='planner-table'>" +
-          "<thead>" +
-            "<tr>" +
-              "<th>" + config.firstColumnLabel + "</th>" +
-              "<th>Start Indoors</th>" +
-              "<th>Direct Sow</th>" +
-              "<th>Transplant Out</th>" +
-              "<th>Fall Planting</th>" +
-            "</tr>" +
-          "</thead>" +
-          "<tbody>" + rows + "</tbody>" +
-        "</table>";
+      config.containerElement.innerHTML = "<table class='planner-table'><thead><tr><th>" + config.firstColumnLabel + "</th><th>Start Indoors</th><th>Direct Sow</th><th>Transplant Out</th><th>Fall Planting</th></tr></thead><tbody>" + rows + "</tbody></table>";
     }
 
     function updateNativePlantsSection() {
@@ -1185,113 +895,51 @@
     }
 
     function updateZoneDisplay(zoneInfo) {
-      if (!zoneInfo || !zoneInfo.zone) {
-        zoneValue.textContent = "Not found";
-        return;
-      }
-
-      if (zoneInfo.temperatureRange) {
-        zoneValue.textContent = zoneInfo.zone + " (" + zoneInfo.temperatureRange + " F)";
-        return;
-      }
-
+      if (!zoneInfo || !zoneInfo.zone) { zoneValue.textContent = "Not found"; return; }
+      if (zoneInfo.temperatureRange) { zoneValue.textContent = zoneInfo.zone + " (" + zoneInfo.temperatureRange + " F)"; return; }
       zoneValue.textContent = zoneInfo.zone;
     }
 
     function findAttributeValue(attributes, possibleKeys) {
       for (const key of possibleKeys) {
-        if (attributes[key] !== undefined && attributes[key] !== null && attributes[key] !== "") {
-          return String(attributes[key]);
-        }
+        if (attributes[key] !== undefined && attributes[key] !== null && attributes[key] !== "") return String(attributes[key]);
       }
-
       for (const [key, value] of Object.entries(attributes)) {
         const lowerKey = key.toLowerCase();
-
-        if (possibleKeys.some((candidate) => lowerKey === candidate.toLowerCase())) {
-          return String(value);
-        }
+        if (possibleKeys.some((candidate) => lowerKey === candidate.toLowerCase())) return String(value);
       }
-
       return "";
     }
 
     function normalizeZoneInfo(attributes) {
-      const zone = findAttributeValue(attributes, [
-        "zone",
-        "ZONE",
-        "zonetitle",
-        "zone_title",
-        "Name",
-        "NAME",
-        "Label",
-        "LABEL"
-      ]);
-
-      const temperatureRange = findAttributeValue(attributes, [
-        "temperature_range",
-        "tempRange",
-        "TempRange",
-        "TEMPRANGE",
-        "range",
-        "RANGE",
-        "temp_rang",
-        "temp"
-      ]);
-
-      return {
-        zone: zone || "Not found",
-        temperatureRange: temperatureRange || ""
-      };
+      const zone = findAttributeValue(attributes, ["zone","ZONE","zonetitle","zone_title","Name","NAME","Label","LABEL"]);
+      const temperatureRange = findAttributeValue(attributes, ["temperature_range","tempRange","TempRange","TEMPRANGE","range","RANGE","temp_rang","temp"]);
+      return { zone: zone || "Not found", temperatureRange: temperatureRange || "" };
     }
 
     function getHardinessLayer() {
-      if (hardinessLayerPromise) {
-        return hardinessLayerPromise;
-      }
-
+      if (hardinessLayerPromise) return hardinessLayerPromise;
       hardinessLayerPromise = new Promise((resolve, reject) => {
-        if (!window.require) {
-          reject(new Error("The ArcGIS library did not load."));
-          return;
-        }
-
+        if (!window.require) { reject(new Error("The ArcGIS library did not load.")); return; }
         window.require(["esri/layers/FeatureLayer"], (FeatureLayer) => {
-          const layer = new FeatureLayer({
-            portalItem: {
-              id: "6272d9a3068c428a8b8bc6debfd19eb9"
-            },
-            outFields: ["*"]
-          });
-
+          const layer = new FeatureLayer({ portalItem: { id: "6272d9a3068c428a8b8bc6debfd19eb9" }, outFields: ["*"] });
           layer.load().then(() => resolve(layer)).catch(reject);
         }, reject);
       });
-
       return hardinessLayerPromise;
     }
 
     async function lookupZoneByPoint(latitude, longitude) {
       setStatus("Looking up the USDA hardiness zone for your exact coordinates...");
       zoneValue.textContent = "Loading...";
-
       const layer = await getHardinessLayer();
-
       const result = await layer.queryFeatures({
-        geometry: {
-          type: "point",
-          latitude,
-          longitude
-        },
+        geometry: { type: "point", latitude, longitude },
         spatialRelationship: "intersects",
         outFields: ["*"],
         returnGeometry: false
       });
-
-      if (!result.features.length) {
-        throw new Error("No hardiness zone was found for that point.");
-      }
-
+      if (!result.features.length) throw new Error("No hardiness zone was found for that point.");
       const zoneInfo = normalizeZoneInfo(result.features[0].attributes);
       updateZoneDisplay(zoneInfo);
       setStatus("Hardiness zone updated.");
@@ -1299,61 +947,32 @@
 
     async function fetchJson(url) {
       const response = await fetch(url);
-
-      if (!response.ok) {
-        throw new Error("Request failed with status " + response.status);
-      }
-
+      if (!response.ok) throw new Error("Request failed with status " + response.status);
       return response.json();
     }
 
     async function lookupFrostDatesByZip(zip) {
       setStatus("Looking up average frost dates for ZIP " + zip + "...");
-      if (!window.FROST_DATA) {
-        showFrostUnavailable("Local frost dataset did not load.");
-        return;
-      }
-
+      if (!window.FROST_DATA) { showFrostUnavailable("Local frost dataset did not load."); return; }
       currentZipCode = zip;
       updateNativePlantsSection();
-
       const entry = window.FROST_DATA[zip];
-
-      if (!entry) {
-        updateFrostDisplay({
-          lastSpringFrost: "Not found",
-          firstFallFrost: "Not found",
-          growingSeason: "Not found"
-        });
-        return;
-      }
-
+      if (!entry) { updateFrostDisplay({ lastSpringFrost: "Not found", firstFallFrost: "Not found", growingSeason: "Not found" }); return; }
       const seasonText = entry[3] ? entry[2] + " (" + entry[3] + ")" : entry[2];
-      updateFrostDisplay({
-        lastSpringFrost: entry[0],
-        firstFallFrost: entry[1],
-        growingSeason: seasonText
-      });
+      updateFrostDisplay({ lastSpringFrost: entry[0], firstFallFrost: entry[1], growingSeason: seasonText });
     }
 
     async function lookupZoneByZip(zip) {
       setStatus("Looking up the plant hardiness zone for ZIP " + zip + "...");
       zoneValue.textContent = "Loading...";
-
       const zoneInfo = await fetchJson("https://phzmapi.org/" + zip + ".json");
-
       zipValue.textContent = zip;
       updateZoneDisplay(zoneInfo);
       setStatus("Hardiness zone updated.");
     }
 
     async function reverseGeocode(latitude, longitude) {
-      const url =
-        "https://api.bigdatacloud.net/data/reverse-geocode-client" +
-        "?latitude=" + encodeURIComponent(latitude) +
-        "&longitude=" + encodeURIComponent(longitude) +
-        "&localityLanguage=" + currentLocale.slice(0, 2);
-
+      const url = "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=" + encodeURIComponent(latitude) + "&longitude=" + encodeURIComponent(longitude) + "&localityLanguage=en";
       return fetchJson(url);
     }
 
@@ -1361,17 +980,12 @@
       currentCoordinates = { latitude, longitude };
       updateCoordinatesDisplay(latitude, longitude);
       setStatus("Finding your city and ZIP code...");
-
       const location = await reverseGeocode(latitude, longitude);
       updateLocationDisplay(location);
       if (location.postcode) {
         await lookupFrostDatesByZip(location.postcode);
       } else {
-        updateFrostDisplay({
-          lastSpringFrost: "Need ZIP",
-          firstFallFrost: "Need ZIP",
-          growingSeason: "Need ZIP"
-        });
+        updateFrostDisplay({ lastSpringFrost: "Need ZIP", firstFallFrost: "Need ZIP", growingSeason: "Need ZIP" });
       }
       await lookupFrostWarning(latitude, longitude);
       await lookupZoneByPoint(latitude, longitude);
@@ -1379,14 +993,9 @@
     }
 
     async function findMyLocation() {
-      if (!navigator.geolocation) {
-        setStatus("Your browser does not support geolocation.");
-        return;
-      }
-
+      if (!navigator.geolocation) { setStatus("Your browser does not support geolocation."); return; }
       setBusy(true);
       setStatus("Asking your browser for permission to use your location...");
-
       navigator.geolocation.getCurrentPosition(
         async (position) => {
           try {
@@ -1400,35 +1009,20 @@
         },
         (error) => {
           let message = "Could not get your location.";
-
-          if (error.code === error.PERMISSION_DENIED) {
-            message = "Location permission was denied. You can still use the ZIP code box below.";
-          } else if (error.code === error.POSITION_UNAVAILABLE) {
-            message = "Your location could not be determined right now.";
-          } else if (error.code === error.TIMEOUT) {
-            message = "The location request took too long.";
-          }
-
+          if (error.code === error.PERMISSION_DENIED) message = "Location permission was denied. You can still use the ZIP code box below.";
+          else if (error.code === error.POSITION_UNAVAILABLE) message = "Your location could not be determined right now.";
+          else if (error.code === error.TIMEOUT) message = "The location request took too long.";
           setStatus(message);
           setBusy(false);
         },
-        {
-          enableHighAccuracy: true,
-          timeout: 10000
-        }
+        { enableHighAccuracy: true, timeout: 10000 }
       );
     }
 
     zipForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-
       const zip = zipInput.value.trim();
-
-      if (!/^\d{5}$/.test(zip)) {
-        setStatus("Please enter a 5-digit ZIP code.");
-        return;
-      }
-
+      if (!/^\d{5}$/.test(zip)) { setStatus("Please enter a 5-digit ZIP code."); return; }
       try {
         setBusy(true);
         placeValue.textContent = "Manual ZIP lookup";
@@ -1449,18 +1043,7 @@
     themeToggleButton.addEventListener("click", () => {
       applyTheme(document.body.classList.contains("dark") ? "light" : "dark");
     });
-    localeSelect.addEventListener("change", async () => {
-      currentLocale = localeSelect.value;
-      savePreferences();
-      if (currentCoordinates) {
-        updateCoordinatesDisplay(currentCoordinates.latitude, currentCoordinates.longitude);
-        await lookupFrostWarning(currentCoordinates.latitude, currentCoordinates.longitude).catch(() => {});
-      }
-      renderVegetablePlanner();
-      renderHerbPlanner();
-      renderFlowerPlanner();
-      renderNativePlantPlanner();
-    });
+
     tempUnitSelect.addEventListener("change", async () => {
       currentTempUnit = tempUnitSelect.value;
       savePreferences();
