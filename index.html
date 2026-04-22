@@ -82,33 +82,33 @@
       backdrop-filter: blur(10px);
     }
 
-   .hero {
-  padding: 32px 28px 18px;
-  background:
-    var(--hero-overlay),
-    repeating-linear-gradient(
-      -45deg,
-      var(--hero-pattern-a) 0,
-      var(--hero-pattern-a) 12px,
-      var(--hero-pattern-b) 12px,
-      var(--hero-pattern-b) 24px
-    );
-  border-bottom: 1px solid var(--line);
-}
+    .hero {
+      padding: 32px 28px 18px;
+      background:
+        var(--hero-overlay),
+        repeating-linear-gradient(
+          -45deg,
+          var(--hero-pattern-a) 0,
+          var(--hero-pattern-a) 12px,
+          var(--hero-pattern-b) 12px,
+          var(--hero-pattern-b) 24px
+        );
+      border-bottom: 1px solid var(--line);
+    }
 
-h1 {
-  margin: 0 0 8px;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1;
-}
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1;
+    }
 
-.subtitle {
-  margin: 0;
-  color: var(--soft-ink);
-  font-size: 1.05rem;
-  line-height: 1.6;
-  max-width: 54ch;
-}
+    .subtitle {
+      margin: 0;
+      color: var(--soft-ink);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      max-width: 54ch;
+    }
 
     .content {
       padding: 24px 28px 28px;
@@ -460,8 +460,8 @@ h1 {
   <main class="card">
     <section class="hero">
       <h1>Plant Zone Druid</h1>
-<p class="subtitle">
-  Use location or ZIP code to explore your plant hardiness zone and garden timing.
+<p class="subtitle" style="visibility:hidden;">
+  Use location or a U.S. ZIP code fallback to explore your plant zone and garden timing.
       </p>
     </section>
 
